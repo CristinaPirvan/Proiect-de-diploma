@@ -1,0 +1,62 @@
+/* Navbar customization */
+.navbar {
+    background-color: green;
+    padding: 10px 20px;
+}
+
+/* Align the navbar links to the left */
+.navbar .navbar-nav {
+    margin-right: auto; /* Pushes the links to the left */
+}
+
+/* Align the form to the right */
+.navbar .form-inline,
+.navbar .form-inline .d-flex {
+    margin-left: auto; /* Pushes the form to the right */
+    display: flex;
+    align-items: center;
+}
+
+.navbar .form-inline .form-control {
+    width: 150px;
+    margin-right: 5px;
+    border-radius: 25px;
+    border: 1px solid #ced4da;
+    padding: 5px 10px;
+}
+
+.navbar .form-inline .form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.navbar .form-inline .btn {
+    background-color: #28a745;
+    color: white;
+    border-radius: 25px;
+    padding: 5px 15px;
+}
+
+.navbar .form-inline .btn:hover {
+    background-color: #218838;
+}
+
+.navbar .form-inline .btn-outline-success {
+    border: none;
+}
+
+@media (max-width: 992px) {
+    .navbar .form-inline {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .navbar .form-inline .form-control {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .navbar .form-inline .btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Welcome</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('locatii') }}">Locatii</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('despre_noi') }}">Despre noi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Welcome, {{ nume }} {{ prenume }}</h1>
+        <p><strong>ID Copil:</strong> {{ id_copil }}</p>
+        <p><strong>Nume:</strong> {{ nume }}</p>
+        <p><strong>Prenume:</strong> {{ prenume }}</p>
+        <p><strong>Data înscrierii la grădiniță:</strong> {{ data_inscrierii_la_gradinita }}</p>
+        <p><strong>Data nașterii:</strong> {{ data_nasterii }}</p>
+        <p><strong>Denumire Clase:</strong> {{ denumire_clase }}</p>
+        <p><strong>Sala:</strong> {{ sala_clase }}</p>
+        <p><strong>An Școlar:</strong> {{ an_scolar_clase }}</p>
+        <p><strong>ID Grădiniță:</strong> {{ id_gradi }}</p>
+        <p><strong>ID Grupă:</strong> {{ id_grupa }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        
+        <p><strong>Imputerniciti:</strong>{% if imputerniciti %}
+            
+            {% for imputernicit in imputerniciti %}
+                {{ imputernicit[0] }} {{ imputernicit[1] }} - {{ imputernicit[2] }}
+            {% endfor %}
+            
+        {% else %}
+            <p>No Imputerniciti found.</p>
+        {% endif %}</p>
+        <p><strong>Aptitudini:</strong>
+    {% if aptitudini %}
+        
+        {% for aptitudine in aptitudini %}
+        {{ aptitudine[0] }}</strong>: {{ aptitudine[1] }} - <em>Gradul: {{ aptitudine[2] }}</em>
+        {% endfor %}
+        
+    {% else %}
+        <p>No Aptitudini found.</p>
+    {% endif %}</p>
+    <h3>Absente:</h3>
+    {% if absente %}
+        {% for absenta in absente %}
+            <p><strong>Data Absenței:</strong> {{ absenta[0] }}</p>
+            <p><strong>Data Revenirii:</strong> {{ absenta[1] }}</p>
+            <p><strong>Motiv:</strong> {{ absenta[2] }}</p>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No Absente found.</p>
+    {% endif %}
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>
